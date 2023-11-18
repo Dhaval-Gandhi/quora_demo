@@ -1,0 +1,9 @@
+<%= form_with url: '/questions', method: :post do |f| %>
+  <%= f.label 'Topic', class: 'form-label' %>
+  <%= f.text_field :topic_name, required: true, value: @question.topic&.name, class: 'form-control' %>
+  
+  <%= f.label 'Question', class: 'form-label' %>
+  <%= f.text_area :content, required: true, value: @question.content, class: 'form-control' %>
+  
+  <%= f.submit "Post", class: 'btn btn-success mt-3' %>
+<% end %>

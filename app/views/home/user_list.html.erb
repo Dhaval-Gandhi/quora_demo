@@ -1,0 +1,16 @@
+<h2>
+  User Followings
+</h2>
+<% if @followings.any? %>
+  <% @followings.each do |user| %>
+    <div class="card mt-3">
+      <div class="card-body">
+        <h5 class="card-title"><%= "#{user.email}" %></h5>
+      </div>
+    </div>
+  <% end %>
+<% else %>
+  <div class='text-center text-danger mt-3'>
+    You are not following anyone.
+  </div>
+<% end %>

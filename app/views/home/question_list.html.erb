@@ -1,0 +1,22 @@
+<h2>
+  User Questions
+</h2>
+<% if @questions.any? %>
+  <% @questions.each do |que| %>
+    <div class="card mt-3">
+      <div class="card-header">
+        <%= "#{que.topic.name} | #{que.updated_at.strftime('%d-%b-%Y %H:%M')}" %>
+      </div>
+      <div class="card-body">
+        <h5 class="card-title"><%= que.content %></h5>
+      </div>
+      <div class="card-footer">
+        <%= link_to 'View', question_path(id: que.id), class: 'btn btn-primary btn-sm' %>
+      </div>
+    </div>
+  <% end %>
+<% else %>
+  <div class='text-center text-danger mt-3'>
+    There are no any question posted by you.
+  </div>
+<% end %>

@@ -1,0 +1,44 @@
+<div class="text-center mt-5">
+  <div class="row">
+    <div class="col">
+      <div class="card border-dark mb-3" style="max-width: 18rem;">
+        <div class="card-header">Question Count</div>
+        <div class="card-body">
+          <%= link_to profile_question_list_path do %>
+            <h5 class="card-title"><%= @user_questions_count %></h5>
+          <% end %>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card border-dark mb-3" style="max-width: 18rem;">
+        <div class="card-header">Answers Count</div>
+        <div class="card-body">
+          <%= link_to profile_answer_list_path do %>
+            <h5 class="card-title"><%= @user_answers_count %></h5>
+          <% end %>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card border-dark mb-3" style="max-width: 18rem;">
+        <div class="card-header">Follow User Count</div>
+        <div class="card-body">
+          <%= link_to profile_user_list_path do %>
+            <h5 class="card-title"><%= @user_followings_count %></h5>
+          <% end %>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card border-dark mb-3" style="max-width: 18rem;">
+        <div class="card-header">Follow Topic Count</div>
+        <div class="card-body">
+          <%= link_to profile_topic_list_path do %>
+            <h5 class="card-title"><%= @user_topics_count %></h5>
+          <% end %>          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

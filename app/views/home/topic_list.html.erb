@@ -1,0 +1,16 @@
+<h2>
+  Followed Topics
+</h2>
+<% if @topics.any? %>
+  <% @topics.each do |topic| %>
+    <div class="card mt-3">
+      <div class="card-body">
+        <h5 class="card-title"><%= "#{topic.name}" %></h5>
+      </div>
+    </div>
+  <% end %>
+<% else %>
+  <div class='text-center text-danger mt-3'>
+    You are not followed any topic.
+  </div>
+<% end %>

@@ -1,0 +1,25 @@
+<h2>
+  User Answers
+</h2>
+
+<% if @answers.any? %>
+  <% @answers.each do |ans| %>
+    <% que = ans.question %>
+    <div class="card mt-3">
+      <div class="card-header">
+        <%= "#{que.topic.name} | #{que.updated_at.strftime('%d-%b-%Y %H:%M')}" %>
+      </div>
+      <div class="card-body">
+        <h5 class="card-title"><%= que.content %></h5>
+        <p class="card-text"><%= ans.content %></p>
+      </div>
+      <div class="card-footer">
+        <%= link_to 'View', question_path(id: que.id), class: 'btn btn-primary btn-sm' %>
+      </div>
+    </div>
+  <% end %>
+<% else %>
+  <div class='text-center text-danger mt-3'>
+    You have not given any answer of any question.
+  </div>
+<% end %>

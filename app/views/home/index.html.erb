@@ -1,0 +1,23 @@
+<h2>
+  Questions
+</h2>
+
+<% if @questions.any? %>
+<table class="table">
+  <tbody>
+    <% @questions.each do |question| %>
+        <tr>
+          <td>
+            <%= link_to question_path(id: question.id), class: 'question' do %>
+              <%= question.content %>
+            <% end %>
+          </td>
+        </tr>
+    <% end %>
+  </tbody>
+</table>
+<% else %>
+  <div class='text-center text-danger mt-3'>
+    There are no any question.
+  </div>
+<% end %>

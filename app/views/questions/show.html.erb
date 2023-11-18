@@ -1,0 +1,30 @@
+<div class="card">
+  <div class="card-header">
+    <%= "#{@question.topic.name} | #{@question.user.email} | #{@question.updated_at.strftime('%d-%b-%Y %H:%M')}" %>
+  </div>
+  <div class="card-body">
+    <h5 class="card-title"><%= @question.content %></h5>
+  </div>
+  <div class="card-footer">
+    <%= link_to 'Write Answer', new_question_answer_path(question_id: @question.id), class: 'btn btn-primary btn-sm' %>
+    <%= link_to 'Follow User', question_user_follows_path(question_id: @question.id), method: :post, class: 'btn btn-info btn-sm' %>
+    <%= link_to 'Follow Topic', question_topic_follows_path(question_id: @question.id), method: :post, class: 'btn btn-info btn-sm' %>
+  </div>
+</div>
+
+<% if @question.answers.any? %>
+  <% @question.answers.each do |answer| %>
+    <div class="card mt-3">
+      <div class="card-header">
+        <%= "#{answer.user.email} | #{answer.updated_at.strftime('%d-%b-%Y %H:%M')}" %>
+      </div>
+      <div class="card-body">
+        <p class="card-text"><%= answer.content %></p>
+      </div>
+    </div>
+  <% end %>
+<% else %>
+  <div class='text-center text-danger mt-3'>
+    There are no any answer for this question.
+  </div>
+<% end %>

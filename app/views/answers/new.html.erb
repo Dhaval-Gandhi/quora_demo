@@ -1,0 +1,18 @@
+<div class="card">
+  <div class="card-header">
+    <%= "#{@question.topic.name} | #{@question.user.email} | #{@question.updated_at.strftime('%d-%b-%Y %H:%M')}" %>
+  </div>
+  <div class="card-body">
+    <h5 class="card-title"><%= @question.content %></h5>
+  </div>
+</div>
+
+<div class="row mt-3">
+  <%= form_with url: "/questions/#{@answer.question_id}/answers", method: :post do |f| %>
+    <%= f.label 'Answer', class: 'form-label' %>
+    <%= f.text_area :content, value: @answer.content, class: 'form-control' %>
+    <%= f.hidden_field :question_id, value: @answer.question_id %>
+
+    <%= f.submit "Post", class: 'btn btn-success mt-3' %>
+  <% end %>
+</div>
